@@ -1,9 +1,15 @@
 import { NextResponse } from "next/server";
+import { prisma } from "@/app/libs/prisma";
 
-export function GET() {
-    return NextResponse.json("Obteniendo informe")
+export async function GET() {
+    const medicReports = await prisma.report.findMany();
+    return NextResponse.json(medicReports)
 }
 
-export function POST() {
-    return NextResponse.json("Creando informe")
+export async function POST(request: Request) {
+    const data = await request.json();
+    const newReport = await prisma.report.create({
+        data
+    })
+    return NextResponse.json(newReport)
 }

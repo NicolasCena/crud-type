@@ -13,20 +13,3 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
-.padre {
-  & .hijo {
-    & > p {
-      color: blue;
-    }
-  }
-
-  &.clase2 {
-    & .hijo {
-      & > p {
-        color: red;
-      }
-    }
-  }
-}
-

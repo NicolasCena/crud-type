@@ -10,9 +10,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Task {
-  id Int @id @default(autoincrement())
-  title String
+model Image {
+  id     Int      @id @default(autoincrement())
+  url    String  
+  report Report   @relation(fields: [reportId], references: [id])
+  reportId Int
+}
+
+model Report {
+  id         Int      @id @default(autoincrement())
+  title      String
   description String?
-  createAt DateTime @default(now())
+  priority Boolean
+  createdAt  DateTime @default(now())
+  images     Image[] 
 }
