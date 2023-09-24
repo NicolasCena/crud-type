@@ -10,12 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Image {
-  id     Int      @id @default(autoincrement())
-  url    String  
-  report Report   @relation(fields: [reportId], references: [id])
-  reportId Int
-}
+// model Image {
+//   id     Int      @id @default(autoincrement())
+//   url    String  
+//   report Report   @relation(fields: [reportId], references: [id])
+//   reportId Int
+// }
 
 model Report {
   id         Int      @id @default(autoincrement())
@@ -23,5 +23,4 @@ model Report {
   description String?
   priority Boolean
   createdAt  DateTime @default(now())
-  images     Image[] 
 }

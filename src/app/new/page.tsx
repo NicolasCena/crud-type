@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Navbar } from "../components/Navbar/Navbar";
 
 const page = () => {
   const {
@@ -13,6 +14,7 @@ const page = () => {
 
   return (
     <>
+      <Navbar />
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
         <input defaultValue="test" {...register("example")} />
