@@ -1,3 +1,51 @@
-.pepe {
-    background-color: red;
+.report {
+    border: 1px solid rgb(245, 245, 245);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    color: black;
+
+    .firstBlock {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(150px, 250px));
+
+        .verDetalle {
+            background-color: transparent;
+            display: flex;
+            border: none;
+            gap: 10px;
+
+            .text {
+                font-weight: 800;
+            }
+
+            .icon {
+                color: red;
+            }
+        }
+    }
+
+    .secondBlock {
+
+        &.active {
+            display: block;
+        }
+    
+        &.noActive {
+            display: none;
+        }
+
+        .description {
+
+        }
+    }
+}
+
+.report:first-child {
+    border-top: 1px solid #CACACA;
+}
+
+.report:last-child {
+    border-bottom: 1px solid #CACACA;
 }

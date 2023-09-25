@@ -1,0 +1,4 @@
+.reports {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(150px, 250px));
+}

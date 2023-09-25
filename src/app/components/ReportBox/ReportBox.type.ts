@@ -1,7 +1,7 @@
 export type Report = {
     title: string,
     description: string,
-    initDate: string,
+    createdAt: string,
     images: string[],
     priority: boolean
 };

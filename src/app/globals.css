@@ -1,22 +1,67 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;700&display=swap');
+
+:root {
+  --grey: #CACACA;
+  --dark-grey: #4B4F54;
+  --dark-blue: #0070CD;
+  --light-blue: #00A3E0;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+.openSansBold {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+.openSansRegular {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
 
 body {
-  @apply bg-slate-900;
-  @apply text-white;
+  background-color: black;
+  color: whitesmoke;
 }
 
 * {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Open Sans', sans-serif;  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-main > .box {
-  @apply bg-slate-600;
-  border: 1px solid whitesmoke;
-  width: 100px;
-  height: 100px;
+main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 30px;
+
+  & > .box {
+    border: 1px solid whitesmoke;
+    width: 200px;
+    height: 100px;
+    border-radius: 4px;
+    display: flex;
+
+    & > a {
+      text-decoration: none;
+      color: antiquewhite;
+    }
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  & h1 {
+    font-size: 30px;
+    padding-right: 30%;
+  }
+
+  & canvas {
+    width: 150px;
+  }
 }

@@ -2,6 +2,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Navbar } from "../components/Navbar/Navbar";
+import styles from "./new.module.css";
 
 const page = () => {
   const {
@@ -15,14 +16,21 @@ const page = () => {
   return (
     <>
       <Navbar />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         {/* register your input into the hook by invoking the "register" function */}
         <input defaultValue="test" {...register("example")} />
 
         {/* include validation with required or other standard HTML validation rules */}
-        <input {...register("exampleRequired", { required: true })} />
+        <input {...register("title", { required: true })} />
         {/* errors will return when field validation fails  */}
         {errors.exampleRequired && <span>This field is required</span>}
+
+        
+        {/* include validation with required or other standard HTML validation rules */}
+        <input {...register("description", { required: true })} />
+        {/* errors will return when field validation fails  */}
+        {errors.exampleRequired && <span>This field is required</span>}
+
 
         <button type="submit" />
       </form>
