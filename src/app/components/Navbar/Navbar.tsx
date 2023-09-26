@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Navbar.module.css';
+import styles from './Navbar.module.css';
 import SearchReportIcon from '@/svgs/SearchReportIcon.svg';
 import AddReportIcon from '@/svgs/AddReportIcon.svg';
 import HomeIcon from '@/svgs/HomeIcon.svg';
@@ -7,18 +7,18 @@ import Link from 'next/link'
 
 export const Navbar = () => {
   return (
-    <nav>
-      <Link href="/">
+    <nav className={styles.navbar}>
+      <Link href="/" className={`${styles.link} openSansBold`}>
         <HomeIcon />
       </Link>
-      <button type='button'>
-        Informes
+      <Link href="/informes" className={`${styles.link} openSansBold`}>
         <SearchReportIcon />
-      </button>
-      <button type='button'>
-        Agregar Informes
+        Informes
+      </Link>
+      <Link href="/new" className={`${styles.link} openSansBold`}>
         <AddReportIcon  />
-      </button>
+        Agregar Informes
+      </Link>
     </nav>
   )
 }

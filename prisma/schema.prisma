@@ -21,6 +21,5 @@ model Report {
   id         Int      @id @default(autoincrement())
   title      String
   description String?
-  priority Boolean
   createdAt  DateTime @default(now())
 }

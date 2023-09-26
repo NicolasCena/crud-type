@@ -4,6 +4,7 @@ import axios from "axios";
 import { URL_BASE } from "../utils/constants";
 import { ReportBox } from "../components/ReportBox/ReportBox";
 import styles from './Informes.module.css';
+import { Navbar } from "../components/Navbar/Navbar";
 
 const page = () => {
   const [reports, setReports] = useState([]);
@@ -24,6 +25,7 @@ const page = () => {
 
   return (
     <div>
+      <Navbar />
       <div className={styles.reports}>
         <div>Número</div>
         <div>Título</div>

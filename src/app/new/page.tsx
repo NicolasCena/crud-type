@@ -3,36 +3,51 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Navbar } from "../components/Navbar/Navbar";
 import styles from "./new.module.css";
+import axios from "axios";
+import { URL_BASE } from "../utils/constants";
 
 const page = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = handleSubmit(async data => {
+      const res = await axios.post(`${URL_BASE}/api/report`, data)
+      console.log(res);
+  });
 
   return (
     <>
       <Navbar />
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        {/* register your input into the hook by invoking the "register" function */}
-        <input defaultValue="test" {...register("example")} />
+      <form onSubmit={onSubmit} className={styles.form}>
+        <div className={styles.box}>
+          <p className={styles.title}>Titulo</p>
+          <p>Máximo 20 letras</p>
+          <input
+            {...register("title", { required: true, maxLength: 20 })}
+            className={styles.input}
+          />
+          { errors.title && <span>Este campo es requerido</span>}
+        </div>
 
-        {/* include validation with required or other standard HTML validation rules */}
-        <input {...register("title", { required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
+        <div className={styles.box}>
+          <p className={styles.title}>Descripción</p>
+          <textarea
+            {...register("description", { required: true, maxLength: 100 })}
+            className={styles.input}
+          />
+          {errors.description && (
+            <span className={`${styles.messageError} openSansBold`}>
+              Debes colocar una descripcion
+            </span>
+          )}
+        </div>
 
-        
-        {/* include validation with required or other standard HTML validation rules */}
-        <input {...register("description", { required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
-
-
-        <button type="submit" />
+        <button type="submit" className={`${styles.submit} openSansBold`}>
+          Agregar informe
+        </button>
       </form>
     </>
   );

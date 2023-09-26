@@ -1,0 +1,19 @@
+.navbar {
+    background-color: var(--white);
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+
+    .link {
+        background-color: transparent;
+        border: none;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+    }
+}

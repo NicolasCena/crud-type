@@ -9,7 +9,7 @@ export async function GET() {
 export async function POST(request: Request) {
     const data = await request.json();
     const newReport = await prisma.report.create({
-        data
-    })
+        data,
+    });
     return NextResponse.json(newReport)
 }
