@@ -1,8 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './ReportBox.module.css';
-import { Report } from './ReportBox.type';
 import ChevronIcon from '@/svgs/ChevronIcon.svg';
+import { Report } from '../../types/state.type'
+import Link from 'next/link'
 
 interface Props {
   report: Report | null;
@@ -19,7 +20,9 @@ export const ReportBox = ({ report, orden }: Props) => {
         <p>{orden}</p>
         <p>{report?.title}</p>
         <p>{report?.createdAt}</p>
-        <p></p>
+        <div>
+          <Link href={`informe/${report?.id}`} >Click</Link>
+        </div>
         <button onClick={() => setIsCollapse(!isCollapse)} className={styles.verDetalle}>
           <p className={styles.text}>Ver detalle</p>
           <ChevronIcon className={styles.icon} />
